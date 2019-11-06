@@ -1,0 +1,21 @@
+﻿
+@{
+    ViewBag.Title = "Logininder";
+}
+
+<form action="@Url.Action("Logininder","Account")" method="post">
+    <label>
+        Account
+    </label>
+    <input type="text" name="account" value="" />
+    <label>
+        Password
+    </label>
+    <input type="password" name="password" value="" />
+    <button type="submit">Login</button>
+</form>
+
+<h2>@ViewBag.Accounttttt</h2>
+<h2>@ViewBag.Passwordddd</h2>
+
+

@@ -11,13 +11,13 @@ namespace Mymagicwilltearyouapart.Controllers
     public class AccountController : Controller
     {
         [HttpGet]
-        public ActionResult Login()
+        public ActionResult Logininder()
         {
             return View();
         }
 
         [HttpPost]
-        public ActionResult Login(Account account)
+        public ActionResult Logininder(Account account)
         {
             ViewBag.Accounttttt = Request.Form["account"];
             ViewBag.Passwordddd = Request.Form["password"];
