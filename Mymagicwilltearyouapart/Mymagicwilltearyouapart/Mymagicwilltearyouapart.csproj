@@ -134,11 +134,13 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Account.cs" />
-    <Compile Include="Models\Class1.cs" />
+    <Compile Include="Models\Aut.cs" />
     <Compile Include="Models\GroupViewModels.cs" />
+    <Compile Include="Models\HappyDBContext.cs" />
     <Compile Include="Models\LoginViewModels.cs" />
     <Compile Include="Models\ModelDBContext.cs" />
     <Compile Include="Models\RegisterViewModels.cs" />
+    <Compile Include="Models\Table.cs" />
     <Compile Include="Models\UserTable.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -177,11 +179,10 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Account\Logininder.cshtml" />
-    <Content Include="Views\Home\Transcripts.cshtml" />
-    <Content Include="Views\Home\Login.cshtml" />
+    <Content Include="Views\Home\LoginPage.cshtml" />
     <Content Include="Views\Home\Register.cshtml" />
+    <Content Include="Views\Home\Secret.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

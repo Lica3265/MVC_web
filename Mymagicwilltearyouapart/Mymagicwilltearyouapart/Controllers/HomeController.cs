@@ -9,52 +9,63 @@ namespace Mymagicwilltearyouapart.Controllers
 {
     public class HomeController : Controller
     {
-        private ModelDBContext _db = new ModelDBContext();
+        //private ModelDBContext _db = new ModelDBContext();
 
-        public ActionResult loginb()
+        //public ActionResult loginb()
+        //{
+        //    using (ModelDBContext DB = new ModelDBContext())
+        //    {            }
+        // return View();
+        //}
+
+
+
+        public ActionResult LoginPage()
+        {                         
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult LoginPage(string email,string password)
         {
-            using (ModelDBContext DB = new ModelDBContext())
+            using (HappyDBContext DB = new HappyDBContext())
             {
 
+                Table table1 = DB.Table.Find(email);
                
+
+                Table table2 = DB.Table.Find(password);
+               
+                if (table1 == null || table2 == null)
+                {
+                    return View();
+                }
+              
+                return Login();
             }
-
-                return View();
         }
-        public ActionResult Index()
-        {
-            DateTime date = DateTime.Now;
-            ViewBag.Date = date;
-
-            Student data = new Student("1", "小明", 80);
-            return View(data);
-        }
-        public ActionResult Transcripts(string id, string name, int score)
-        {
-            Student data = new Student(id, name, score);
-            return View(data);
-        }
-        [HttpPost]
-        public ActionResult Transcripts(Student model)
-        {
-            string id = model.id;
-            string name = model.name;
-            int score = model.score;
-            Student data = new Student(id, name, score);
-            return View(data);
-
-
-        }
-
         public ActionResult Login()
         {
-            return View();
+            Session["auth"] = true;
+            return RedirectToAction("LoginPage");
         }
-        [HttpPost]
-        public ActionResult Login(LoginViewModels model)
+        public ActionResult Logout()
+        {
+            Session["auth"] = false;
+            return RedirectToAction("LoginPage");
+        }
+
+        [AuthorizePlus]
+        public ActionResult Secret()
         {
             return View();
         }
+
+        
+
+
+
+
         public ActionResult Register()
         {
             return View();
@@ -64,5 +75,8 @@ namespace Mymagicwilltearyouapart.Controllers
         {
             return View();
         }
+      
+      
+
     }
 }
